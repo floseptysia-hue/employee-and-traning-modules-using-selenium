@@ -1,0 +1,1 @@
+rootProject.name = "employee-and-training-modules-using-selenium"
