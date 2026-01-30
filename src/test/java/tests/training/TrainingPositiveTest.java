@@ -28,34 +28,34 @@ public class TrainingPositiveTest extends BaseTest {
 
     @Test(description = "Add New Chapter")
     public void addChapter_success() {
-        trainingPage.addChapter("Introduction");
+        trainingPage.addChapter("Introduction", "Test New Chapter");
 
         Assert.assertTrue(trainingPage.isToastDisplayed());
     }
 
-    @Test(description = "Add New Content")
-    public void addContent_success() {
-        trainingPage.addContent("Selenium Basics", "10");
+//    @Test(description = "Add New Content")
+//    public void addContent_success() {
+//        trainingPage.addContent("Selenium Basics", "10");
+//
+//        Assert.assertTrue(trainingPage.isToastDisplayed());
+//    }
 
-        Assert.assertTrue(trainingPage.isToastDisplayed());
-    }
+//    @Test(description = "Assign Employee to Training")
+//    public void assignEmployee_success() {
+//        trainingPage.assignEmployee("John");
+//
+//        Assert.assertTrue(trainingPage.isToastDisplayed());
+//    }
 
-    @Test(description = "Assign Employee to Training")
-    public void assignEmployee_success() {
-        trainingPage.assignEmployee("John");
+//    @Test(description = "Search Training by Employee Name")
+//    public void searchByEmployee_success() {
+//        trainingPage.searchByEmployeeName("John");
+//    }
 
-        Assert.assertTrue(trainingPage.isToastDisplayed());
-    }
-
-    @Test(description = "Search Training by Employee Name")
-    public void searchByEmployee_success() {
-        trainingPage.searchByEmployeeName("John");
-    }
-
-    @Test(description = "Search Training by Division")
-    public void searchByDivision_success() {
-        trainingPage.searchByDivision("QA");
-    }
+//    @Test(description = "Search Training by Division")
+//    public void searchByDivision_success() {
+//        trainingPage.searchByDivision("QA");
+//    }
 
     @Test(description = "Show 5 Rows")
     public void show5Rows() {

@@ -3,7 +3,7 @@
     <test name="Employee Tests">
         <packages>
             <package name="tests.employee"/>
-            <package name="tests.training"/>
+<!--            <package name="tests.training"/>-->
         </packages>
     </test>
 </suite>

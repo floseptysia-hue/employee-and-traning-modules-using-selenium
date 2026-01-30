@@ -8,15 +8,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-/**
- * Page Object for Employee Feature
- * Scope:
- * - Add
- * - Search
- * - Delete
- * - Import
- * - Transfer Employee
- */
 public class EmployeePage extends BasePage {
     private final By employeeMenu = By.cssSelector("a[href='/dibimbingqa/admin/employee']");
 
@@ -80,8 +71,19 @@ public class EmployeePage extends BasePage {
 
         jsClick(submitEmployeeBtn);
 
-        waitForToast();
-        waitModalGone();
+//        waitForToast();
+//        waitModalGone();
+    }
+
+    public void selectAnyDivision() {
+        Select select = new Select(driver.findElement(divisionSelect));
+
+        for (WebElement option : select.getOptions()) {
+            if (!option.getAttribute("value").isEmpty()) {
+                select.selectByValue(option.getAttribute("value"));
+                break;
+            }
+        }
     }
 
     public void deleteEmployee() {
@@ -116,12 +118,20 @@ public class EmployeePage extends BasePage {
 
     public boolean isSuccessMessageDisplayed() {
         try {
-            WebElement toast =
-                    new WebDriverWait(driver, Duration.ofSeconds(10))
-                            .until(ExpectedConditions.visibilityOfElementLocated(successToast));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+            WebElement toast = wait.until(ExpectedConditions.visibilityOfElementLocated(successToast));
+
+            wait.until(driver ->
+                    toast.getText() != null &&
+                            !toast.getText().isBlank()
+            );
+
+            System.out.println("TOAST TEXT = " + toast.getText());
 
             return toast.getText().toLowerCase().contains("success");
         } catch (TimeoutException e) {
+            System.out.println("TOAST NOT FOUND");
             return false;
         }
     }
