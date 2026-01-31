@@ -1,35 +1,40 @@
-# API Automation Testing – GraphQL
+# Web Automation Testing – Selenium (Java)
 
-This repository contains API automation tests for a **GraphQL-based service**.  
-The tests are designed to validate request and response behavior and to support regression testing through automated execution.
-
----
-
-## API Under Test
-
-**API Type**  
-GraphQL
-
-**Endpoint URL**  
-https://lmsb2b.do.dibimbing.id/graphql
+This repository contains web automation tests built using **Selenium WebDriver with Java**.  
+The automation focuses on validating critical user flows and is structured using the **Page Object Model (POM)** to ensure maintainability and scalability.
 
 ---
 
 ## Automation Scope
 
-- Automation testing for GraphQL APIs
-- Validation of GraphQL queries and mutations
-- Response verification (data, errors, and schema consistency)
-- Regression-ready test scenarios
+- Automation testing for critical business flows
+- Implementation of Page Object Model (POM)
+- Designed for regression testing and CI/CD execution
+
+---
+
+## Web Application Under Test
+
+**Application Name**  
+LMS B2B Dibimbing Website
+
+**Login URL**  
+https://lms-b2b.do.dibimbing.id/dibimbingqa/login
+
+**Covered Features**
+- Training module
+- Employee module
+
+Only the Training and Employee features are included in this automation project.
 
 ---
 
 ## Tech Stack
 
 - Java
-- GraphQL API Testing
-- Gradle
-- Allure Report
+- Selenium WebDriver
+- Maven
+- Page Object Model (POM)
 - GitHub Actions (CI/CD)
 
 ---
@@ -39,17 +44,21 @@ https://lmsb2b.do.dibimbing.id/graphql
 src
 └── test
 └── java
-├── api # GraphQL API test cases
-└── utils # Configuration and helper classes
+├── pages # Page Object classes
+├── tests # Test scenarios
+└── utils # WebDriver and helper utilities
 
 
 ---
 
-## Environment Configuration
+## How to Run the Tests
 
-Create an environment file based on the example provided:
+1. Clone the repository
+   ```bash
+   [git clone https://github.com/your-username/api-automation-graphql.git](https://github.com/floseptysia-hue/api-automation-graphql/edit/main/README.md)
+2. Navigate to the project directory
+   cd api-automation-graphql
+3. Execute tests using Maven
+   mvn clean test
 
-```bash
-cp .env.example .env
 
-Update the required values in the .env file before running the tests.
